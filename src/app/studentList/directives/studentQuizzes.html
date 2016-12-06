@@ -1,0 +1,39 @@
+
+<table class="table table-striped table-bordered">
+    <thead>
+    <h3>Student's List of Attempted Quizzes  for - {{vm.classRoom.name}}
+</h3>
+    <h3>{{vm.classId}}</h3>
+    <h3>{{vm.student.email}}</h3>
+
+    <tr><th>#</th>
+        <th>Quiz ID</th>
+        <th>Status</th>
+        <th>Score</th>
+
+    </tr>
+    </thead>
+
+    <tr ng-repeat="studQuiz in vm.studQuizzes">
+        <td>
+            <div><strong>{{ $index + 1 }}</strong></div>
+        </td>
+        <td>
+            <div><strong>{{ studQuiz.quizId }}</strong></div>
+
+        </td>
+         <td>
+            <div><strong>{{ studQuiz.isCompleted  == 'true' ? 'Completed' : 'In Progress'}}</strong></div>
+        
+        </td>
+         <td>
+            <div>
+            <strong><input length="5" type="number" name="score" ng-value ="studQuiz.score" ng-change="vm.studQuizzes.$save(studQuiz)" ng-model="studQuiz.score" ng-readonly='!($index == eEditable)' ng-dblclick="eEditable = $index" placeholder="Double click to edit score.">%</strong></div>
+        
+        </td>
+      
+        <td>
+        <button ng-click="vm.removeStudent(studQuiz)" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></button>
+        </td>
+    </tr>
+</table>

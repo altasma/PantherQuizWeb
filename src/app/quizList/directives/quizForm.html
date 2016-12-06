@@ -1,0 +1,28 @@
+<form name="quizForm" ng-submit="vm.addQuiz()" class="form-inline new-class-room-form">
+    <div class="form-group">
+        Quiz ID: <input ng-model="vm.newQuiz.quizId" type="text" class="form-control" placeholder="Quiz ID" required  title=" Give a unique quiz id (number only)">
+    </div>
+    <div class="form-group">
+       Quiz Name: <input ng-model="vm.newQuiz.quizName" type="text" class="form-control" title="Unique name across to easily identify among quizzes" placeholder="Quiz Name" required>
+    </div>
+    <div class="form-group">
+        <input ng-model="vm.newQuiz.isAvailable" ng-value="false" ng-hide="true" type="text" class="form-control" title="Unique name across this class  to easily identify among quizzes" placeholder="Quiz Name" >
+    </div>
+    <div class="form-group">
+        Challenge: <input ng-model="vm.newQuiz.challenge" type="text" maxlength="10" class="form-control" title="Only students who enter this code can take the quiz. Maximum 10 characters." placeholder="Enter challenge code " >
+    </div><br><br>
+    
+  
+   Quiz Starts on:  <input type="datetime-local" id="startTime" class="form-control" ng-model="vm.newQuiz.startTime"
+      placeholder="yyyy-MM-ddTHH:mm:ss" />
+
+      
+      Quiz Ends on:   <input type="datetime-local" id="endTime"  class="form-control" name="input" ng-model="vm.newQuiz.endTime"
+      placeholder="yyyy-MM-ddTHH:mm:ss" min="2001-01-01T00:00:00" max="4040-12-31T00:00:00" required />
+    </div>
+   
+ <div><br>
+ <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> New Quiz</button> <p style="color:red;">{{vm.noChromeMessage}}</p>
+ </div>
+</form>
+<br>

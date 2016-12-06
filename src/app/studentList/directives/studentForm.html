@@ -1,0 +1,16 @@
+<h4>Add New Student</h4> 
+<form enctype="multipart/form-data" method="post" name="studentForm" ng-submit="vm.addStudent(addStudentHelperCallBack)" class="form-inline class-form">
+<div style="width: 70%; height: 70%; background-color: #94b8b8; float:left;" class="form-group">
+       <b>Enter Student's Email :</b> <input  style="width: 60%;" ng-model="vm.newStudent.email" type="email" class="form-control" placeholder="Students's email">
+       <span style="color:#cc0000;" class="error" ng-show="studentForm.input.$error.email">
+        Invalid email!</span>
+        
+    </div><dv></dv><br><br><br>
+    <div style="width: 70%; height: 70%; background-color: #94b8b8; position:relative;" >
+            <input type="file" id="files"  placeholder="You can add multiple students at once by uploading a a text file containing a comma separated list of emails" name="file" />Or  Upload a Text File: 
+        </div>
+   <br>
+
+    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;New Student </button>
+</form>
+<br>

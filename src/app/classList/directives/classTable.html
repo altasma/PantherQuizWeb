@@ -1,0 +1,54 @@
+<div class="container">
+<table style="overflow-x:auto;" class="table table-striped table-bordered">
+
+    <thead>
+    <div>
+    <h3>List of Classes</h3>  <b>{{vm.userName}}</b> </div>
+    <tr><th>#</th>
+        <th>School</th>
+        <th>Department</th>
+        <th>Class Name</th>
+        <th>Class ID</th>
+        <th>Year</th>
+        <th>Term</th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tr ng-repeat="classRoom in vm.rooms">
+        <td>
+            <div><strong>{{ $index + 1 }}</strong></div>
+        </td>
+        <td>
+            <div><strong>{{ classRoom.school }}</strong></div>
+        </td>
+        <td>
+            <div>{{ classRoom.department }}</div>
+        </td>
+        <td>
+            <div>{{ classRoom.name }}</div>
+        </td>
+        <td>
+            <div>{{ classRoom.id }}</div>
+        </td>
+        <td>
+            <div>{{ classRoom.year}}</div>
+        </td>
+        <td>
+            <div>{{ classRoom.term }}</div>
+        </td>
+        
+        <td>
+          
+                 <button ng-click="vm.quizList(classRoom)" class="btn btn-success"><span class="glyphicon glyphicon-th-list"></span> Quizzes</button> 
+                <a ng-click="vm.editClass(classRoom)" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+               <button ng-click="vm.studentList(classRoom)" class="btn btn-warning"><span class="glyphicon glyphicon-user"></span> Students</button>
+
+<button type="button"  csv-header="vm.getHeader(classRoom)"  filename="gradeReport.csv" ng-csv="vm.gradeReport(classRoom)"   class="btn btn-default"><span class="glyphicon glyphicon-download-alt"></span> Grades</button>
+<button ng-click="vm.removeClassRoom(classRoom)" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+
+        </td>
+    </tr>
+</table>
+<br><br><br><br>
+</div>

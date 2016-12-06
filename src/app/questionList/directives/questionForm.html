@@ -1,0 +1,43 @@
+
+
+  <strong>Quiz Id: {{vm.quizName}}</strong>
+   <fieldset  style="background-color:#5c8d8e;" data-ng-repeat="question in vm.questions">
+<div>
+    <div>
+    <fieldset>
+        <label for="questionText">#{{$index + 1}}</label>
+        <input type="text" name="questionText" ng-model="question.question"  ng-change="vm.questions.$save(question)" style="width:100%">
+        <fieldset  data-ng-repeat="(key,value) in question.choices" ng-init="ind = $index + 1">
+       
+        {{key}}
+        <input type="radio" ng-model="question.answer" ng-change="vm.questions.$save(question)" value= {{key}} name={{question}} >
+         <!-- <input type="text"  style="width:70%" name="choiceText" ng-model="value" value={{value}} ng-change="vm.questions.$save(question)" placeholder="enter text" reguired>-->
+
+         <input type="text"  style="width:70%" name="choiceText" ng-model="question.choices[key]"  ng-change="vm.questions.$save(question)" placeholder="enter text" reguired>
+
+        <button class="remove"  ng-click="vm.removeChoice(question,key)"><span class="glyphicon glyphicon-remove-circle"></span></button>
+        </fieldset><br>
+        </fieldset>
+       <strong style="background-color:green;">
+       Correct Answr is: {{question.answer}}</strong>
+   </div>
+      <br>
+      <button class="btn btn-primary" class="addfields" ng-click="vm.addNewChoice(question)">More Choice +</button>
+      <span><button class="btn btn-primary" ng-click="vm.saveOneQuestion(question)">Save</button></span>
+      <span><button class="btn btn-danger" ng-click="vm.deleteQuestion(question)">Delete Question</button></span>
+</div>
+ 
+         </fieldset></br>
+     &nbsp; &nbsp;&nbsp;
+     <button  class="btn btn-primary" class="addquestions" ng-click="vm.addNewQuestion(vm.currentQuiz)">Add Qestion +</button>
+
+</div>
+<br>
+     <div >
+     <br>
+     &nbsp; &nbsp;&nbsp;<button type="submit" class="btn btn-success" ng-click="vm.saveAllQuestions()">Save All Questions</button></br><br><br>
+     </div>
+</div> <!--   end of quizContainer div  -->
+<br>
+
+ 

@@ -1,0 +1,13 @@
+<h4>Editing - {{vm.student.email}} ...</h4>
+ 
+<form  ng-submit="vm.updateStudent()" class="form-inline quiz-edit">
+    <div class="form-group">
+       <strong>Email: </strong> <input  ng-model="vm.student.email" type="email" class="form-control" required>
+    </div>
+    <div class="form-group">
+       <strong>Name: </strong> <input ng-model="vm.student.name" type="text" class="form-control" >
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save the Change</button>
+</form>
+<br>

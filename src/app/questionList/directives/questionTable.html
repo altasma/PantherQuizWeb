@@ -1,0 +1,52 @@
+<form name="quizForm" ng-submit="vm.addQuiz()" class="form-inline new-class-room-form">
+    <div class="form-group">
+        <input ng-model="vm.newQuiz.quizId" type="text" class="form-control" placeholder="Quiz ID" required  title=" Give a unique quiz id (number only)">
+    </div>
+    <div class="form-group">
+        <input ng-model="vm.newQuiz.quizName" type="text" class="form-control" title="Unique name across to easily identify among quizzes" placeholder="Quiz Name" required>
+    </div>
+    <div class="form-group">
+        <input ng-model="vm.newQuiz.isAvailable" ng-value="false" ng-hide="true" type="text" class="form-control" title="Unique name across to easily identify among quizzes" placeholder="Quiz Name" >
+    </div>
+    <div class="form-group">
+        <input ng-model="vm.newQuiz.challenge" type="text" class="form-control" title="Only students who entered this code can take the quiz. You can change it anytime." placeholder="Enter challenge code " required>
+    </div><br><br>
+     <div class="form-group">
+        <input ng-model="vm.newQuiz.startDate" type="text" class="form-control" title="Date the quiz can be available to students." placeholder="Start Date " required>
+    </div>
+     <div class="form-group">
+        <input id="startTime" ng-model="vm.newQuiz.startTime" type="text" class="form-control" title="Time the quiz can be available to students. MM:HH:SS" placeholder="Start Time: hh:mm " required>
+        <div>
+        <span class="error" ng-show="quizForm.input.$error.required">
+         Required!</span>
+            <span class="error" ng-show="quizForm.input.$error.time">
+         Not a valid date!</span>
+        </div>
+    </div><br><br>
+     <div class="form-group">
+        <input ng-model="vm.newQuiz.endDate" type="text" class="form-control" title="Date the quiz qill be clised to students." placeholder="End Date " required>
+    </div>
+     <div class="form-group">
+        <input id="endTime" ng-model="vm.newQuiz.endTime" type="text" class="form-control" title="Time the quiz will be closed to students.MM:HH:SS" placeholder="End Time: hh:mm " required>
+    </div>
+     <div>
+        <span class="error" ng-show="quizForm.input.$error.required">
+         Required!</span>
+            <span class="error" ng-show="quizForm.input.$error.time">
+         Not a valid date!</span>
+        </div>
+
+    <br><br>
+    <!-- <div class="form-group">
+        <input ng-model="vm.newQuiz.id" type="text" class="form-control" placeholder="Class number" required>
+    </div>
+    <div class="form-group">
+        <input ng-model="vm.newQuiz.year" type="text" class="form-control" placeholder="YYYY" required>
+    </div>
+    <div class="form-group">
+        <input ng-model="vm.newQuiz.term" type="text" class="form-control" placeholder="Term/Semester" required> -->
+<!--     </div>
+ --><!--     <a href="#/questionlist">Update quiz</a>
+ -->    <button type="submit" class="btn btn-primary">Update Quiz Info</button>
+</form>
+<br>

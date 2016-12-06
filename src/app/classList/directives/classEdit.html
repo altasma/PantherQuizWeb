@@ -1,0 +1,27 @@
+<h4>Editing - {{vm.classRoom.name}} ...</h4>
+ 
+<form  ng-submit="vm.updateClassRoom(vm.classRoom)" class="form-inline class-edit">
+    <div class="form-group">
+        <input  ng-model="vm.classRoom.school" type="text" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <input ng-model="vm.classRoom.department" type="text" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <input ng-model="vm.classRoom.name" type="text" class="form-control"  required>
+    </div><br><br>
+    <div class="form-group">
+        <input ng-model="vm.classRoom.id" type="text" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <input ng-model="vm.classRoom.year" ng-minlength="4" ng-maxlength="4" type="number" class="form-control"  required>
+    </div>
+    <div class="form-group">
+        <input ng-model="vm.classRoom.term" type="text" class="form-control"  required>
+    </div>
+   <div>
+   <br>
+    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-save"></span> Save the Change</button>
+    </div>
+</form>
+<br>
