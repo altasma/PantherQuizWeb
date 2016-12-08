@@ -7,7 +7,6 @@
 
   ClassListController.$inject = ['$rootScope', '$scope','classRoomService', 'user', '$route','$window'];
   function ClassListController($rootScope, $scope, classRoomService, user, $route, $window) {
-  console.log("Starting ClassListController controller...!!");
     var vm = this;
 
 

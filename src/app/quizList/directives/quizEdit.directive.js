@@ -32,9 +32,12 @@
 
     vm.quiz = currQuiz;
     vm.updateQuiz= updateQuiz;
+            console.log("edit directives, vm.quiz", vm.quiz);
+
 
     function updateQuiz(quiz) {
        if(vm.quiz){
+        console.log("edit directives, vm.quiz", vm.quiz);
       var quizKey = quiz.$id;
 
       var quizInQuizzesRef = firebaseDataService.root.child("quizzes").child(classId).child(quiz.$id);

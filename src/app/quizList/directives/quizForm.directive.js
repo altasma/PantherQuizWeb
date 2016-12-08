@@ -25,14 +25,11 @@
 
   function QuizFormController(quizService,firebaseDataService,classRoomService,$rootScope) {
     var vm = this;
-    console.log("qinsidee quizForm.directive, vm is ");
-    console.log(vm);
     vm.noChromeMessage = "";
 
     vm.newQuiz= new quizService.Quiz();
     vm.addQuiz = addQuiz;
-            var user = $rootScope.currentUser;
-            console.log("User", user);
+    var user = $rootScope.currentUser;
 
     var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
 
@@ -47,9 +44,7 @@
         classRoomService.showSimpleToast("Use Google Chrome to create a new quiz!");
         return;
     }
-      console.log("addQuiz starts : ");
-      console.log(vm.newQuiz);
-      console.log(vm.rooms);
+     
       var tempStart = vm.newQuiz.startTime.toLocaleString();
       var tempEnd = vm.newQuiz.endTime.toLocaleString();
 

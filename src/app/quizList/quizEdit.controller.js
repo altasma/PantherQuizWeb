@@ -8,6 +8,7 @@
   QuizEditController.$inject = ['quizService', 'user'];
   function QuizEditController(quizService, user) {
     var vm = this;
+    console.log("Editing quiz,", vm);
   }
 
 })();

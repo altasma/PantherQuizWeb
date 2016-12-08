@@ -198,10 +198,12 @@
       console.log(vm.questions);
       if(vm.questions != null){
              // vm.questions = [];
-      vm.questions.$add({'$id':'','question':" ", 'choices':{'A':"",'B':""},'answer':""})
+            console.log("Questions is  not empty:: ");
+
+      vm.questions.$add({'$id':'','question':" ", 'choices':{'A':"True",'B':"False"},'answer':""})
       }
       else{
-        console.log("Questions is empty");
+        console.log("Questions is empty: ");
         vm.questions ={};
         vm.questions.$add({'$id':'','question':" ", 'choices':{'A':"",'B':""},'answer':""});
 

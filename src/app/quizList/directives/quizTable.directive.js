@@ -24,7 +24,6 @@
   function QuizTableController($location, quizService, classRoomService,$rootScope) {
      var vm = this;
      $rootScope.quizs = vm.quizzes;
-
      vm.isAvailableForStudents = isAvailableForStudents;
      vm.currentClass = classRoomService.getCurrentClass();
      vm.removeQuiz = removeQuiz;
@@ -33,7 +32,8 @@
      vm.listQuestions = listQuestions;
      vm.editQuiz = editQuiz;
 
-  
+     
+
 
     function removeQuiz(quiz) {
       if(confirm("Are you sure you want remove permanently?")){
@@ -43,8 +43,7 @@
               var qKey = vm.quizzes.$$getKey(quiz);
               var dbRef = firebase.database().ref();
               var quizRef = dbRef.child('quizzes').child(vm.currentClass.$id).child(qKey).set(null);
-
-             console.log("remove", vm.quizzes.$remove(quiz));
+              vm.quizzes.$remove(quiz);
       }
     }
 

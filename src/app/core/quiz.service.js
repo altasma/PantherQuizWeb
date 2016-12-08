@@ -8,7 +8,6 @@
   quizService.$inject = ['$firebaseArray', 'firebaseDataService','$firebaseObject'];
 
   function quizService($firebaseArray, firebaseDataService, $firebaseObject) {
-    console.log("Starting inside quizService");
 
      var quizzes = null;
      var currentQuiz = null;

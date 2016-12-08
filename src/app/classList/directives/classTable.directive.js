@@ -41,10 +41,8 @@
     vm.classRoom =classRoomService.getCurrentClass();
     //this will save the edited classroom from classEdit.html(if redirected from classedit.html)
     if(vm.classRoom){
-      console.log("Inside if .. vm.classRoom func ");
       vm.rooms.$save(vm.classRoom);
     }
-    console.log(vm.classRoom);
 
     function removeClassRoom(classRoom) {
       if(confirm("Are you sure you want to delete class " + classRoom.name + " permanently?")){
@@ -83,21 +81,25 @@
       
        return grades;
       }
-
+   
+    // var header = ['quiz1', 'quiz2'];
     
      function getHeader(classRoom){
          var headers = new Array();
 
         var classRef = firebaseDataService.root.child("quizzes").child(classRoom.$id);
-        return classRef.once('value').then(function(snapshot){
+        headers.push('email');
+         classRef.once('value').then(function(snapshot){
 
-          snapshot.forEach(function(snap){
-            headers.push(snap.child('quizId').val());
+              snapshot.forEach(function(childSnapshot){
+              headers.push(childSnapshot.child('quizId').val());
            
           });//End of forEach()
-          console.log("headers", headers);
-          return headers;  //Finally return the result
+              
+          return headers;  
         });
+
+        return headers;
 
       }
 
@@ -133,14 +135,10 @@
    function getStudsArray(classRoom){
     var classRef = firebaseDataService.root.child("studentsQuiz").child(classRoom.$id);
     var arr = new Array();
-    console.log("firstly");
     return classRef.once('value').then(function(snapshot){
-      console.log("count", snapshot.numChildren(), snapshot);
 
       snapshot.forEach(function(snap){
-        console.log("pushEmail", snap.numChildren(), snap.getKey());
-        arr.push(snap.getKey());
-       
+        arr.push(snap.getKey()); 
       });//End of forEach()
   
       return arr;  //Finally return the result
@@ -150,7 +148,6 @@
 
     function getFileName(classRoom){
       var fileName = "GradeReport.csv";
-      console.log("fileName", fileName);
       return fileName;
     }
 
@@ -166,7 +163,7 @@
    }
 
     function quizList(classRoom) {
-            //set the shared classId/key variable before routing
+      //set the shared classId/key variable before routing
 
        classRoomService.setCurrentClass(classRoom);
        $location.path('/quizlist');
@@ -176,21 +173,11 @@
       //set the shared classId/key variable before routing
        classRoomService.setCurrentClass(classRoom);
 
-      
-
-     // classRoomService.setCurrentClass(classRoom);
-      // vm.classRoom = classRoom;
-      // classRoomService.setCurrentClass(classRoom);
-      // console.log("Inside ClassTableController, quizlist func.. classRoom is: ");
-      // console.log(classRoomService.getCurrentClass());
+    
        $location.path('/studentlist');
 
     }
 
-
-    // function toggleDone(classRoom) {
-    //   vm.rooms.$save(classRoom);
-    // }
   }
 
 })();
